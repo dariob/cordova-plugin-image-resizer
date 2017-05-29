@@ -17,6 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.pm.ApplicationInfo;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
@@ -112,7 +113,7 @@ public class ImageResizer extends CordovaPlugin {
         File folder = null;
         if(folderName == null)
         {
-            folder = new File(Environment.getExternalStorageDirectory().toString());
+            folder = new File(Environment.getDataDirectory().toString());
         }
         else
         {
@@ -122,7 +123,7 @@ public class ImageResizer extends CordovaPlugin {
             }
             else
             {
-                folder = new File(Environment.getExternalStorageDirectory() + "/" + folderName);
+                folder = new File(Environment.getDataDirectory() + "/" + folderName);
             }
         }
         boolean success = true;
